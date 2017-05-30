@@ -5,8 +5,8 @@
   imageLoader.addEventListener('change', handleImage, false);
   var canvas = document.querySelector('#image');
   var ctx = canvas.getContext('2d');
-  
-  var imageWorker = new Worker('scripts/worker.js');
+
+  var imageWorker = new Worker('worker.js');
 
   function handleImage(e){
     var reader = new FileReader();
@@ -47,7 +47,7 @@
     imageWorker.onmessage = function(e) {
       toggleButtonsAbledness();
       var image = e.data;
-      if(image)return ctx.putImageData(e.data, 0, 0);
+      if (image) return ctx.putImageData(e.data, 0, 0);
       console.log("No manipulated image returned.")
     }
 
