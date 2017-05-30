@@ -5,7 +5,7 @@
   imageLoader.addEventListener('change', handleImage, false);
   var canvas = document.querySelector('#image');
   var ctx = canvas.getContext('2d');
-
+  
   var imageWorker = new Worker('scripts/worker.js');
 
   function handleImage(e){
@@ -40,7 +40,7 @@
     var a, b, g, i, imageData, j, length, pixel, r, ref;
     imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     toggleButtonsAbledness();
-    imageWorker.postMessage({'imageData':imageData, 'type': type});
+    imageWorker.postMessage({'imageData': imageData, 'type': type});
 
     // Hint! This is where you should post messages to the web worker and
     // receive messages from the web worker.
