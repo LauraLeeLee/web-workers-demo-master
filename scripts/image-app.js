@@ -33,7 +33,7 @@
       } else {
         buttons[i].setAttribute('disabled', null);
       }
-    };
+    }
   }
 
   function manipulateImage(type) {
@@ -55,9 +55,10 @@
       function WorkerException(message) {
         this.name = "WorkerException";
         this.message = message;
-      };
+      }
       throw new WorkerException('Worker Error.');
     };
+  }
 
   function revertImage() {
     return ctx.putImageData(original, 0, 0);
